@@ -12,7 +12,9 @@
 #'
 #' @return Returns a histogram comparing the simulated and theoretical densities
 #' @export
-#'
+#'@importFrom stats rnorm var dchisq sd density
+#'@importFrom graphics hist lines curve legend
+
 #' @examples
 #' mychisim(iter=1000, mean1= 10, sigma1 = 4, ymax=0.15, x = 20, y = 0.1)
 mychisim=function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,x=20, y=0.1){    # adjust ymax to make graph fit

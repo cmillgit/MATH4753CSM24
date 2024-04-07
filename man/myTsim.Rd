@@ -4,16 +4,7 @@
 \alias{myTsim}
 \title{A Student's T Simulation}
 \usage{
-myTsim(
-  n1 = 10,
-  sigma1 = 3,
-  mean1 = 5,
-  iter = 1000,
-  ymax = 0.1,
-  x = 2,
-  y = 0.3,
-  ...
-)
+myTsim(n1 = 10, sigma1 = 3, mean1 = 5, iter = 1000, ymax = 0.1, x = 2, y = 0.3)
 }
 \arguments{
 \item{n1}{The size of the sample drawn from the normally distributed population in each iteration}

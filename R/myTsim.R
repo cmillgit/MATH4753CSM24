@@ -11,11 +11,14 @@
 #' @param y y coordinate of the legend
 #'
 #' @return Returns a histogram with a density curve representing the simulated distribution of the T statistic and overlays a theoretical T distribution curve for comparison. Also provides an invisible list containing the simulated T statistics, their summary, and standard deviation.
+
+#' @importFrom stats rnorm sd dt
+#' @importFrom graphics hist lines curve legend
 #' @export
 #'
 #' @examples
 #' myTsim(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,x=2,y=0.3)
-myTsim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,x=2,y=0.3,...){    # adjust ymax to make graph fit
+myTsim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,x=2,y=0.3){    # adjust ymax to make graph fit
   y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
 
   data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE) # Each column is a sample size n1

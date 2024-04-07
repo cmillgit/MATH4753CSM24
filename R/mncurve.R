@@ -7,11 +7,14 @@
 #' @param a upper bound up to which the area under the curve will be shaded and the probability calculated
 #' @param plot logical, whether to plot of the curve and shaded region (default=TRUE)
 #' @return Returns a plot and the area under the normal distribution curve from the leftmost point (considering a practical range of mean ± 3*sigma) up to the upper bound 'a'.
+#' @importFrom graphics curve polygon
+#' @importFrom stats dnorm pnorm
 #' @examples
 #' myncurve(0, 1, 1.96, plot = TRUE)
 #' @export
 myncurve = function(mu, sigma, a, plot = TRUE){
   if (plot) {
+    x = NULL
     curve(dnorm(x, mean = mu, sd = sigma), xlim = c(mu - 3*sigma, mu + 3*sigma))
     xcurve = seq(mu - 3*sigma , a, length=1000)
     ycurve = dnorm(xcurve, mean = mu, sd = sigma)

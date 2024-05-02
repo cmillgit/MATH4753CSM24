@@ -39,6 +39,15 @@ ntickets <- function(N = 200, gamma = 0.02, p = 0.95){
   obj2.min = optimize(objective2, c(N, N * 1.1), maximum = FALSE)
   nc = obj2.min$minimum
 
+  results <- list(
+    "Optimal Number of Tickets (Discrete)" = nd,
+    "Optimal Number of Tickets (Normal Approximation)" = nc,
+    "Number of Seats on the Flight (N)" = N,
+    "Probability of a Person Showing Up (p)" = p,
+    "Probability of Overbooking (gamma)" = gamma
+  )
+
+  print(results)
   # Constructing the normal approximation plot
   nc_values = seq(N, N*1.1, length.out = 1000)
   objective2_values = sapply(nc_values, function(n) {
@@ -54,15 +63,5 @@ ntickets <- function(N = 200, gamma = 0.02, p = 0.95){
        xlab = "n", ylab = "Objective", ylim = range(objective2_values))
   abline(h = 0, col = "blue", lwd = 1) # adds a horizontal line at 0
   abline(v = nc, col = "blue", lwd = 1) # adds a vertical dashed line at nc
-
-  results <- list(
-    "Optimal Number of Tickets (Discrete)" = nd,
-    "Optimal Number of Tickets (Normal Approximation)" = nc,
-    "Number of Seats on the Flight (N)" = N,
-    "Probability of a Person Showing Up (p)" = p,
-    "Probability of Overbooking (gamma)" = gamma
-  )
-
-  return(results)
 }
 

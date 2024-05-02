@@ -6,6 +6,10 @@ Author: Christian Miller
 Maintainer: Christian Miller <christian.s.miller-1@ou.edu>
 Description: MATH4753 lab functions and other selections.
 License: MIT + file LICENSE
+Imports:
+    rgl,
+    stats,
+    grDevices
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3

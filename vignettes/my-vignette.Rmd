@@ -17,3 +17,50 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(MATH4753CSM24)
 ```
+
+# Introduction
+
+The MATH4753CSM24 package contains several functions and a set of data mostly for use in labs, assignments, and projects in the Applied Statistical Methods course at the University of Oklahoma taught by Dr. Wayne Stewart. These functions primarily serve illustrative purposes, useful for demonstrating how statistical theory works in real-world problems.
+
+Functions in the MATH4753CSM24 package encompass a range of statistical concepts from basic discrete and continuous distributional theory, Central Limit Theorem, simulations and bootstrap sampling, maximum-likelihood estimation, among others. Many of the functions produce visualizations of the working-theory, a helpful tool for building intuition that translates to practical application.
+
+While many of the functions in MATH4753CSM24 are meant for learning purposes, some can be used or modified for use in applications such as research projects and other data analyses. Below are four functions from the package that provide an example of its contents.
+
+# Function Examples
+
+## example 1: `myncurve()`
+
+```{r fig.width=5.8, fig.height=4.5}
+myncurve(0, 1, 1.96, plot = TRUE)
+```
+
+We can see the `myncurve()` function visualizes the probability density function of a normal distribution. It shades the area under the curve to the left of a specified quantile, representing the lower tail probability up to that point.
+
+
+## example 2: `ntickets()`
+
+```{r fig.width=8}
+ntickets(N = 200, gamma = 0.02, p = 0.95)
+```
+
+Above shows the output from the `ntickets()` function I developed for the optimization problem of airline ticket sales. This function considers both the binomial case and its normal approximation to solve for optimal ticket sales under user-specified parameters.
+
+
+## example 3: `superboot()`
+
+```{r fig.width=6, fig.height=4}
+superboot(x = fire$DAMAGE, iter = 10000, fun = mean, plotType = "histogram")
+superboot(x = fire$DAMAGE, iter = 10000, fun = sd, plotType = "density")
+```
+
+I developed the `superboot()` function above to perform bootstrap sampling of a specified data source over a specified number of iterations. It then estimates the bootstrap confidence intervals of a particular population parameter and displays both the interval and point estimates in a specified plot type.
+
+
+## example 4: `mlenorm3D()`
+
+```{r 3dplot, fig.width=5, fig.height=5}
+mlenorm3D(x = c(5, 7, 7, 8, 10), mu = seq(5, 10, length = 100), sig = seq(0.1, 4, length = 100))
+rgl::rglwidget()
+```
+
+Above is a demonstration of the `mlenorm3D()` function I created to calculate and illustrate the maximum likelihood estimates of parameters from a normally distributed population.
